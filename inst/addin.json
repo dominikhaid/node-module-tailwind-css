@@ -1,0 +1,4 @@
+[{
+"file":"./postcss.config.js",
+"selector":"plugins: {",
+"replacemant":"plugins: {\n tailwindcss: {},autoprefixer: {},\n"}]
