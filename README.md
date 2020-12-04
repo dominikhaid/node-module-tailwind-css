@@ -1,4 +1,4 @@
-# SQL (sqlite / mysql / postgres)
+# Tailwind CSS
 
 ## Discription
 
@@ -8,10 +8,8 @@ This module is developed to extend our base server. It can be easily installed w
 
 ### Module Features
 
-- Add support for sql dialects sqlite, mysql and postgres
-- Add ready to use docker-compose for mysql annd mysqladmin
-- Add ready to use docker-compose for postgres annd pgadmin4
-- Add sample data, functions and routes
+- Add support for tailwind-css react / next.js
+
 
 
 
@@ -23,22 +21,12 @@ This module is developed to extend our base server. It can be easily installed w
 > 
 > cd my-app
 > 
-> npm run plugin p=https://github.com/dominikhaid/node-module-sql.git
+> npm run plugin p=https://github.com/dominikhaid/node-module-tailwind-css.git
 > 
-> npx sequelize-cli db:migrate
 > 
-> npx sequelize-cli db:seed --seed 20200602234904-demo-user
+> npm run dev //next.js
+> npm run carco start //react
 > 
-> npm run dev
-> 
-> visit http://localhost/api/db/users
+> visit http://localhost/
+**NOTE:**  all endpoinnts are documented in ./src/htt
 
-**NOTE:**  all endpoinnts are documented in ./src/http
-
-
-
-### Sequlize
-```
-Sequlize unfiys all SQL dialects. You can use excat the same syntax for every dialect. 
-```
-- ./src/config/sql-config.json
