@@ -1,13 +1,7 @@
 {
   "dependencies": {
-    "@craco/craco": "^5.9.0",
     "autoprefixer": "^9.8.6",
     "postcss": "^7.0.35",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.1"
-  },
-  "scripts": {
-    "craco start": "craco start",
-    "craco build": "craco build",
-    "craco test": "craco test"
   }
 }
