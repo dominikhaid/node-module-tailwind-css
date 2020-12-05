@@ -1,4 +1,7 @@
 {
+  "name": "dominikhaid-next",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
     "autoprefixer": "^9.8.6",
     "postcss": "^7.0.35",
