@@ -1,5 +1,5 @@
 import React from 'react';
-import globalcss from '../../public/css/global.css';
+
 
 
 export default function Tailwind(props) {
