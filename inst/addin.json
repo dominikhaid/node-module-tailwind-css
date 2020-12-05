@@ -2,6 +2,6 @@
   {
     "file": "./postcss.config.js",
     "selector": "plugins: {",
-    "replacemant": "plugins: {\n tailwindcss: {},\nautoprefixer: {},\n"
+    "replacemant": "\n tailwindcss: {},\nautoprefixer: {},"
   }
 ]
