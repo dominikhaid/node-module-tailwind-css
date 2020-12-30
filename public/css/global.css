@@ -1,3 +1,157 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-secondary-dark;
+  }
+
+  h1 {
+    @apply text-left text-3xl;
+  }
+
+  h2 {
+    @apply text-left text-2xl;
+  }
+
+  button {
+    @apply p-md pl-sm pr-sm justify-self-center disabled:opacity-30 rounded hover:shadow-md border-2;
+  }
+
+  section.modal:not(.demo) {
+    @apply fixed w-1/2 top-1/4 left-1/4 text-secondary;
+  }
+
+  section.modal {
+    @apply bg-white rounded-xl shadow-2xl p-xl  text-secondary;
+  }
+
+  form {
+    @apply text-secondary p-lg border-t-2 border-secondary;
+  }
+
+  fieldset {
+    @apply flex-grow flex space-x-sm flex-row justify-center flex items-center;
+  }
+
+  fieldset > :not([hidden]) ~ :not([hidden]) {
+    @apply m-none;
+  }
+
+  fieldset > [type='text'],
+  fieldset > [type='email'],
+  fieldset > [type='url'],
+  fieldset > [type='password'],
+  fieldset > [type='number'],
+  fieldset > [type='date'],
+  fieldset > [type='datetime-local'],
+  fieldset > [type='month'],
+  fieldset > [type='search'],
+  fieldset > [type='tel'],
+  fieldset > [type='time'],
+  fieldset > [type='week'],
+  fieldset > [multiple],
+  fieldset > textarea,
+  fieldset > select {
+    @apply rounded-r-lg flex-auto flex-grow  placeholder-secondary placeholder-opacity-40 text-secondary-dark shadow-inner  border-2 border-gray-lightest  p-md;
+  }
+
+  [type='text'],
+  [type='email'],
+  [type='url'],
+  [type='password'],
+  [type='number'],
+  [type='date'],
+  [type='datetime-local'],
+  [type='month'],
+  [type='search'],
+  [type='tel'],
+  [type='time'],
+  [type='week'],
+  [multiple],
+  textarea,
+  select {
+    @apply rounded-lg flex-auto flex-grow  placeholder-secondary placeholder-opacity-40 text-secondary-dark shadow-inner  border-2 border-gray-lightest  p-md;
+  }
+
+  input[type='radio'] {
+    @apply ml-lg text-primary flex-shrink;
+  }
+
+  fieldset,
+  fieldset.labeled {
+    @apply p-lg bg-gray-lightest;
+  }
+
+  fieldset:first-child,
+  fieldset.labeled:first-child {
+    @apply rounded-t-lg;
+  }
+
+  fieldset:last-child,
+  fieldset.labeled:last-child {
+    @apply rounded-b-lg;
+  }
+
+  fieldset.labeled > label {
+    @apply rounded-l-lg bg-gray-lightest font-bold p-md text-secondary border-2 border-gray-lightest flex-1;
+  }
+
+  label {
+    @apply font-bold p-md text-secondary flex-1;
+  }
+
+  a {
+    @apply text-primary-dark hover:text-primary-dark text-sm  font-semibold;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply border-0 bg-primary hover:bg-primary-light  hover:ring-inset hover:ring-2 hover:ring-primary-light text-white;
+  }
+
+  .btn-secondary {
+    @apply border-0 bg-secondary-dark hover:bg-secondary-dark text-white;
+  }
+
+  .btn-success {
+    @apply bg-green hover:bg-green-light hover:shadow-md;
+  }
+
+  .container-normal {
+    @apply overflow-hidden container mx-auto appearance-none break-words tracking-wide flex-grow flex flex-col justify-center;
+  }
+
+  .container-full {
+    @apply overflow-hidden mx-auto appearance-none break-words tracking-wide  flex-grow flex flex-col justify-center;
+  }
+
+  .spaced {
+    @apply flex space-x-lg;
+  }
+
+  .spaced-lg {
+    @apply flex space-x-3xl;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+  --color-primary: #14b8a6;
+  --color-secundary: #6b7280;
+  --color-white: #f1f1f1;
+  --color-black: #111827;
+  --tw-ring-color: var(--color-primary);
+}
+
+#root {
+  display: grid;
+  grid-template-rows: minmax(100vh, auto);
+  position: relative;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
