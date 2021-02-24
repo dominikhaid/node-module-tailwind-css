@@ -1,6 +1,7 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
+  transparent: 'transparent',
   gray: {
     darkest: colors.coolGray['900'],
     dark: colors.coolGray['800'],
@@ -27,16 +28,16 @@ module.exports = {
   },
   primary: {
     darkest: colors.teal['900'],
-    dark: colors.teal['800'],
+    dark: colors.teal['600'],
     DEFAULT: colors.teal['500'],
-    light: colors.teal['100'],
+    light: colors.teal['300'],
     lightest: colors.teal['50'],
   },
   secondary: {
     darkest: colors.indigo['900'],
     dark: colors.indigo['800'],
-    DEFAULT: colors.indigo['500'],
-    light: colors.indigo['100'],
+    DEFAULT: '#19B6FF',
+    light: colors.indigo['300'],
     lightest: colors.indigo['50'],
   },
   blue: {

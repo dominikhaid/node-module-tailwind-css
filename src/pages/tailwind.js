@@ -1,6 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 function Stylesheet() {
+  useEffect(() => {
+    if (process.browser)
+      document.querySelector('footer').innerHTML += `<style>#__next {
+  display: inherit !important;
+}</style>`;
+    return () => {};
+  }, []);
+
   return (
     <>
       {/**
@@ -38,7 +46,7 @@ function Stylesheet() {
        * */}
       <section
         id="colors"
-        className="grid bg-gray-lightest grid-cols-4 items-center min-h-3/4 gap-lg p-4xl"
+        className="md:grid lg:grid xl:grid bg-gray-lightest grid-cols-4 items-center gap-lg p-4xl sm:grid-flow-col-dense"
       >
         <h1 className="text-center p-md uppercase mt-6xl col-span-4">Colors</h1>
         <div className="bg-gray-light p-lg flex m-xs shadow-xl border-2 flex">
@@ -111,18 +119,18 @@ function Stylesheet() {
        * */}
       <section
         id="text"
-        className="bg-secondary-light flex justify-center items-center min-h-3/4 p-4xl flex-wrap"
+        className="bg-secondary-light flex justify-center items-center p-4xl flex-wrap"
       >
         <h1 className="text-center p-md uppercase mt-6xl col-span-4 flex-none w-100">
           Text
         </h1>
-        <article class="prose prose-lg p-lg">
+        <article className="prose prose-lg p-lg">
           <h1>Garlic bread with cheese: What the science tells us</h1>
           <p>
             For years parents have espoused the health benefits of eating garlic
             bread with cheese to their children, with the food earning such an
             iconic status in our culture that kids will often dress up as warm,
-            cheesy loaf for Halloween.
+            cheesy loaf htmlFor Halloween.
           </p>
           <p>
             But a recent study shows that the celebrated appetizer may be linked
@@ -133,10 +141,10 @@ function Stylesheet() {
             For years parents have espoused the health benefits of eating garlic
             bread with cheese to their children, with the food earning such an
             iconic status in our culture that kids will often dress up as warm,
-            cheesy loaf for Halloween.
+            cheesy loaf htmlFor Halloween.
           </p>
         </article>
-        <article class="prose prose-lg p-lg">
+        <article className="prose prose-lg p-lg">
           <h3>Garlic bread with cheese: What the science tells us</h3>
           <p>
             But a recent study shows that the celebrated appetizer may be linked
@@ -160,7 +168,7 @@ function Stylesheet() {
        * */}
       <section
         id="padding"
-        className="bg-primary-light flex justify-center items-center min-h-3/4 p-4xl flex-wrap p-4xl"
+        className="bg-primary-light flex justify-center items-center p-4xl flex-wrap p-4xl"
       >
         <h1 className="text-center p-md uppercase mt-6xl min-w-100">Padding</h1>
         <div className="bg-primary p-xs m-xs shadow-xl border-2 self-center">
@@ -225,7 +233,7 @@ function Stylesheet() {
        * */}
       <section
         id="margin"
-        className="bg-secondary-light flex justify-center items-center min-h-3/4 p-4xl flex-wrap p-4xl"
+        className="bg-secondary-light flex justify-center items-center p-4xl flex-wrap p-4xl"
       >
         <h1 className="text-center p-md uppercase mt-6xl  min-w-100">Margin</h1>
         <div className="bg-secondary m-xs shadow-xl border-2">
@@ -290,7 +298,7 @@ function Stylesheet() {
        * */}
       <section
         id="elements"
-        className="bg-primary-light grid grid-cols-2 items-center gap-lg min-h-3/4 p-4xl"
+        className="bg-primary-light md:grid lg:grid xl:grid grid-cols-2 items-center gap-lg p-4xl"
       >
         <h1 className="text-center col-span-2 p-md uppercase mt-6xl  min-w-100">
           Elements
@@ -300,27 +308,27 @@ function Stylesheet() {
           <div></div>
           <form>
             <fieldset className="labeled">
-              <label for="intext">Text:</label>
+              <label htmlFor="intext">Text:</label>
               <input id="intext" type="text" value="Text" />
             </fieldset>
             <fieldset className="labeled">
-              <label for="innr">Nr:</label>
+              <label htmlFor="innr">Nr:</label>
               <input id="innr" type="number" placeholder="123" />
             </fieldset>
             <fieldset className="labeled">
-              <label for="inemail">Email:</label>
+              <label htmlFor="inemail">Email:</label>
               <input id="inemail" type="email" placeholder="example@test.com" />
             </fieldset>
             <fieldset className="labeled">
-              <label for="inpw">Password:</label>
+              <label htmlFor="inpw">Password:</label>
               <input id="inpw" type="password" value="1234" />
             </fieldset>
             <fieldset>
-              <label for="jetzt">Val1</label>
+              <label htmlFor="jetzt">Val1</label>
               <input name="radiogrp" type="radio" id="jetzt" value="current" />
-              <label for="heute">Val2</label>
+              <label htmlFor="heute">Val2</label>
               <input name="radiogrp" type="radio" id="heute" value="tomorrow" />
-              <label for="fiveday">Val3</label>
+              <label htmlFor="fiveday">Val3</label>
               <input
                 name="radiogrp"
                 type="radio"
@@ -332,7 +340,7 @@ function Stylesheet() {
         </section>
         <section>
           <h2 className="text-center p-md uppercase">Spaced</h2>
-          <div className="spaced h-1/8 m-sm">
+          <div className="spaced min-h-75 m-sm">
             <div className="bg-secondary-dark w-50 text-white">
               <p className="text-center p-xl">spaced</p>
             </div>
@@ -340,7 +348,7 @@ function Stylesheet() {
               <p className="text-center p-xl">spaced</p>
             </div>
           </div>
-          <div className="spaced-lg h-1/8 m-sm">
+          <div className="spaced-lg min-h-75 m-sm">
             <div className="bg-secondary-dark w-50 text-white">
               <p className="text-center p-xl">spaced-lg</p>
             </div>
@@ -372,7 +380,7 @@ function Stylesheet() {
        * */}
       <section
         id="shadow"
-        className="bg-secondary-light flex justify-center items-center min-h-3/4 p-4xl flex-wrap p-4xl"
+        className="bg-secondary-light flex justify-center items-center min-h-75 p-4xl flex-wrap p-4xl"
       >
         <h1 className="text-center p-md uppercase mt-6xl  min-w-100">
           Shadows
@@ -419,46 +427,46 @@ function Stylesheet() {
        * */}
       <section
         id="containers"
-        className="bg-gray-lightest flex justify-center items-center min-h-3/4 flex-wrap"
+        className="bg-gray-lightest items-center min-h-75"
       >
         <h1 className="text-center p-md uppercase mt-6xl  min-w-100">
           Container
         </h1>
         <div className="container-normal px-xs  mt-lg mb-lb">
-          <div className="flex items-center justify-center bg-primary min-h-1/2">
-            <article class="prose prose-lg p-lg">
+          <div className="flex items-center justify-center bg-primary min-h-50">
+            <article className="prose prose-lg p-lg">
               <h1>Normal px-xs</h1>
               <p>
                 For years parents have espoused the health benefits of eating
                 garlic bread with cheese to their children, with the food
                 earning such an iconic status in our culture that kids will
-                often dress up as warm, cheesy loaf for Halloween.
+                often dress up as warm, cheesy loaf htmlFor Halloween.
               </p>
             </article>
           </div>
         </div>
         <div className="container-normal px-4xl mt-lg mb-lb">
-          <div className="flex items-center justify-center bg-primary min-h-1/2">
-            <article class="prose prose-lg p-lg">
+          <div className="flex items-center justify-center bg-primary min-h-50">
+            <article className="prose prose-lg p-lg">
               <h1>Normal px-4xl</h1>
               <p>
                 For years parents have espoused the health benefits of eating
                 garlic bread with cheese to their children, with the food
                 earning such an iconic status in our culture that kids will
-                often dress up as warm, cheesy loaf for Halloween.
+                often dress up as warm, cheesy loaf htmlFor Halloween.
               </p>
             </article>
           </div>
         </div>
         <div className="container-full  mt-lg mb-lb">
-          <div className="flex items-center justify-center bg-primary min-h-1/2">
-            <article class="prose prose-lg p-lg">
+          <div className="flex items-center justify-center bg-primary min-h-50">
+            <article className="prose prose-lg p-lg">
               <h1>Full/Fluid</h1>
               <p>
                 For years parents have espoused the health benefits of eating
                 garlic bread with cheese to their children, with the food
                 earning such an iconic status in our culture that kids will
-                often dress up as warm, cheesy loaf for Halloween.
+                often dress up as warm, cheesy loaf htmlFor Halloween.
               </p>
               <p>
                 But a recent study shows that the celebrated appetizer may be
@@ -469,6 +477,7 @@ function Stylesheet() {
           </div>
         </div>
       </section>
+      <footer></footer>
     </>
   );
 }

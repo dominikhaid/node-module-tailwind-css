@@ -9,5 +9,9 @@ module.exports = {
 
   '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.2)',
   inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.2)',
+  primary: '0 0px 10px rgba(20, 184, 166,0.7)',
+  secondary: '0 0px 10px rgba(0, 156, 229,0.7)',
+  green: '0 0px 10px rgba(34, 197, 94,0.7)',
+  gray: '0 0px 10px rgba(17, 24, 39,0.7)',
   none: 'none',
 };

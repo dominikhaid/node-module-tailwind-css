@@ -2,21 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 @layer base {
   body {
-    @apply text-secondary-dark;
+    @apply font-sans bg-gray-darkest dark:bg-gray-darkest;
   }
 
-  h1 {
-    @apply text-left text-3xl;
+  nav h1,
+  nav h2,
+  nav h3,
+  nav h4,
+  nav h5,
+  nav h6,
+  main#main h1,
+  main#main h2,
+  main#main h3,
+  main#main h4,
+  main#main h5,
+  main#main h6 {
+    @apply font-bold text-gray-darkest dark:text-primary;
   }
 
-  h2 {
-    @apply text-left text-2xl;
+  nav h1,
+  main#main h1 {
+    @apply text-2xl mb-lg mt-lg;
+  }
+
+  nav h2,
+  main#main h2 {
+    @apply text-xl text-left mt-4xl mb-xl;
+  }
+
+  nav h3,
+  main#main h3 {
+    @apply text-lg text-xl text-left mt-2xl mb-xl;
+  }
+
+  nav h4,
+  main#main h4 {
+    @apply text-lg mt-xl;
+  }
+
+  nav h5,
+  main#main h5 {
+    @apply mt-lg text-md;
+  }
+
+  nav h6,
+  main#main h6 {
+    @apply text-sm mt-md;
   }
 
   button {
-    @apply p-md pl-sm pr-sm justify-self-center disabled:opacity-30 rounded hover:shadow-md border-2;
+    @apply font-semibold leading-7 transition-colors transition-shadow duration-500 ease-in-out border-2 rounded py-xs px-xl justify-self-center disabled:opacity-30 disabled:cursor-not-allowed disabled:bg-gray disabled:border-gray;
   }
 
   section.modal:not(.demo) {
@@ -24,19 +63,38 @@
   }
 
   section.modal {
-    @apply bg-white rounded-xl shadow-2xl p-xl  text-secondary;
+    @apply rounded shadow-2xl bg-secondary-lightest p-xl;
+  }
+
+  section.modal li {
+    @apply border-b cursor-pointer text-secondary p-xl border-secondary-light hover:border-b-2;
+  }
+
+  section.modal li.active {
+    @apply border-b cursor-pointer p-xl border-secondary-darkest bg-secondary-light;
   }
 
   form {
-    @apply text-secondary p-lg border-t-2 border-secondary;
+    @apply text-secondary;
   }
 
-  fieldset {
-    @apply flex-grow flex space-x-sm flex-row justify-center flex items-center;
+  fieldset,
+  fieldset > button {
+    @apply flex flex-row flex-wrap items-center justify-start flex-grow space-x-sm sm:m-none sm:justify-start;
   }
 
-  fieldset > :not([hidden]) ~ :not([hidden]) {
-    @apply m-none;
+  main#main fieldset > input:not([type='radio']),
+  main#main fieldset > label {
+    @apply sm:w-75;
+  }
+
+  main#main fieldset > input,
+  main#main fieldset > label {
+    @apply sm:ml-none mt-none mt-lg;
+  }
+
+  main#main fieldset > button.btn-primary {
+    @apply sm:ml-none sm:mt-lg sm:flex-none;
   }
 
   fieldset > [type='text'],
@@ -54,7 +112,7 @@
   fieldset > [multiple],
   fieldset > textarea,
   fieldset > select {
-    @apply rounded-r-lg flex-auto flex-grow  placeholder-secondary placeholder-opacity-40 text-secondary-dark shadow-inner  border-2 border-gray-lightest  p-md;
+    @apply relative leading-7 border-t-0 border-b-2 border-l-0 border-r-0 outline-none py-xs px-none ring-0 focus:ring-0 dark:border-primary border-secondary-darkest focus:outline-none focus:shadow-none;
   }
 
   [type='text'],
@@ -72,16 +130,20 @@
   [multiple],
   textarea,
   select {
-    @apply rounded-lg flex-auto flex-grow  placeholder-secondary placeholder-opacity-40 text-secondary-dark shadow-inner  border-2 border-gray-lightest  p-md;
+    @apply relative flex-auto flex-grow font-semibold bg-transparent border-t-0 border-b-2 border-l-0 border-r-0 outline-none ring-0 dark:border-primary border-secondary-darkest focus:outline-none focus:shadow-none placeholder-secondary-dark dark:placeholder-gray-dark placeholder-opacity-40 text-secondary-dark dark:text-gray-darkest p-md disabled:opacity-30;
   }
 
   input[type='radio'] {
-    @apply ml-lg text-primary flex-shrink;
+    @apply ml-lg text-primary text-secondary-darkest bg-secondary-light;
+  }
+
+  main#main fieldset > * {
+    @apply sm:m-none;
   }
 
   fieldset,
   fieldset.labeled {
-    @apply p-lg bg-gray-lightest;
+    @apply py-lg;
   }
 
   fieldset:first-child,
@@ -95,37 +157,95 @@
   }
 
   fieldset.labeled > label {
-    @apply rounded-l-lg bg-gray-lightest font-bold p-md text-secondary border-2 border-gray-lightest flex-1;
+    @apply flex-1 font-bold border-2 rounded-l-lg bg-gray-lightest p-md text-secondary border-gray-lightest;
   }
 
   label {
-    @apply font-bold p-md text-secondary flex-1;
+    @apply flex-auto flex-grow font-bold p-md text-gray-darkest dark:text-gray-darkest;
   }
 
-  a {
-    @apply text-primary-dark hover:text-primary-dark text-sm  font-semibold;
+  #__next #main a,
+  #root #main a {
+    @apply text-sm font-semibold text-secondary-darkest dark:text-secondary dark:hover:text-primary hover:text-secondary-dark;
+  }
+
+  #__next #main,
+  #root #main {
+    @apply overflow-hidden text-gray-darkest dark:text-gray-darkest;
+  }
+
+  #__next #main h1,
+  #__next #main h2,
+  #__next #main h3,
+  #__next #main h4,
+  #__next #main h5,
+  #__next #main h6,
+  #root #main h1,
+  #root #main h2,
+  #root #main h3,
+  #root #main h4,
+  #root #main h5,
+  #root #main h6 {
+    @apply text-gray-darkest dark:text-gray-darkest;
+  }
+
+  ul > li::before {
+    display: none;
+  }
+
+  nav ul > li,
+  main ul > li {
+    @apply relative mt-lg mb-lg py-lg;
+  }
+
+  footer p {
+    @apply absolute text-center px-4xl w-100 text-primary text-md;
+  }
+
+  footer small {
+    @apply text-secondary-dark;
   }
 }
 
 @layer components {
-  .btn-primary {
-    @apply border-0 bg-primary hover:bg-primary-light  hover:ring-inset hover:ring-2 hover:ring-primary-light text-white;
+  .main-bg {
+    @apply shadow-2xl dark:shadow-xl dark:from-secondary-dark dark:via-secondary-dark dark:to-secondary-darkest bg-gradient-to-t from-secondary-light via-secondary to-secondary;
+  }
+
+  #main {
+    @apply main-container main-bg;
+  }
+
+  .main-container {
+    @apply flex-row content-start max-w-full container-normal h-3/4;
+  }
+
+  main#main .main-headline {
+    @apply border-b-2 px-none pt-none pb-lg dark:border-primary border-secondary-darkest;
   }
 
   .btn-secondary {
-    @apply border-0 bg-secondary-dark hover:bg-secondary-dark text-white;
+    @apply text-white border-2 border-gray-darkest bg-gray-darkest hover:shadow-gray;
+  }
+
+  .btn-primary {
+    @apply text-white border-2 border-secondary-dark dark:border-secondary dark:bg-secondary bg-secondary-dark hover:shadow-secondary;
   }
 
   .btn-success {
-    @apply bg-green hover:bg-green-light hover:shadow-md;
+    @apply text-white border-2 border-green bg-green hover:shadow-green;
+  }
+
+  .btn-ghost {
+    @apply flex content-center justify-center border-none m-none p-none text-gray-darkest;
   }
 
   .container-normal {
-    @apply overflow-hidden container mx-auto appearance-none break-words tracking-wide flex-grow flex flex-col justify-center;
+    @apply container flex flex-col justify-center flex-grow mx-auto overflow-hidden tracking-wide prose break-words appearance-none lg:prose-lg p-none;
   }
 
   .container-full {
-    @apply overflow-hidden mx-auto appearance-none break-words tracking-wide  flex-grow flex flex-col justify-center;
+    @apply flex flex-col justify-center flex-grow max-w-full mx-auto overflow-hidden tracking-wide prose break-words appearance-none lg:prose-lg;
   }
 
   .spaced {
@@ -135,23 +255,680 @@
   .spaced-lg {
     @apply flex space-x-3xl;
   }
-}
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+  #background {
+    @apply absolute w-full top-none left-none bg-secondary-lightest dark:bg-gray-darkest dark:opacity-95;
+  }
+
+  main#main #app-view-day-selector,
+  main#main #app-view-day-selectorp,
+  main#main #app-view-day-selector a,
+  main#main #app-view-day-selector i {
+    @apply text-center dark:text-secondary dark:hover:text-gray-light text-secondary hover:text-gray-lightest;
+  }
+
+  main#main .app-view-time-selector i,
+  main#main #app-view-day-selector i {
+    @apply text-4xl mb-xs mt-xs;
+  }
+
+  #app-weather-view {
+    @apply absolute z-20 flex flex-col flex-wrap justify-center text-lg dark:text-primary text-secondary-darkest;
+  }
+
+  #app-weather-view .weather-main-icon {
+    @apply relative flex flex-wrap content-center justify-center m-auto text-6xl text-center text-white;
+  }
+
+  #app-weather-view .weather-main-icon i.icon-big {
+    @apply relative text-center border-4 border-white rounded-full bg-gray-dark dark:bg-gray-dark dark:text-primary dark:border-primary;
+  }
+
+  #app-weather-view .weather-main-icon p.temprature {
+    @apply absolute z-10 m-none p-none text-secondary-darkest dark:text-primary;
+  }
+
+  #app-view-day-selector {
+    @apply absolute z-20 flex flex-col flex-wrap justify-center text-xl pt-md dark:bg-gray-dark bg-gray-dark dark:text-secondary text-secondary;
+  }
+
+  #__next #app-view-day-selector p,
+  #root #app-view-day-selector p {
+    @apply text-center m-none text-md;
+  }
+
+  #__next #app-view-day-selector .app-weather-phrase-long,
+  #root #app-view-day-selector .app-weather-phrase-long {
+    @apply text-md;
+  }
+
+  #app-weather-view .app-weather-phrase-long {
+    @apply flex justify-center font-semibold border-b-2 dark:border-primary border-secondary-darkest;
+  }
+
+  #__next #app-view-day-selector a,
+  #root #app-view-day-selector a {
+    @apply flex-1 block text-sm text-center w-100;
+  }
+
+  main#main #app-city-select-overlay {
+    @apply absolute top-0 left-0 z-50 flex flex-wrap content-start w-100 h-100 p-2xl main-bg;
+  }
+
+  #menu-app-overlay {
+    @apply absolute z-50 text-white bg-secondary dark:bg-secondary-dark p-2xl;
+  }
+
+  .select-list li button {
+    @apply sm:flex-none;
+  }
+
+  main#main #app-city-select-overlay li,
+  .select-list li,
+  #menu-app-overlay li {
+    @apply border-b opacity-50 cursor-pointer text-gray-dark my-none sm:py-lg pr-none pl-none dark:border-secondary border-secondary-darkest;
+  }
+
+  main#main #app-city-select-overlay li.active,
+  .select-list li.active,
+  #menu-app-overlay li.active {
+    @apply border-b-2 opacity-100 border-secondary-darkest dark:text-primary dark:border-primary;
+  }
+
+  .weather-list li {
+    @apply relative flex justify-start font-semibold leading-10 sm:text-md;
+  }
+  .weather-list li i {
+    @apply z-10 flex items-center justify-center text-white rounded-full cursor-pointer bg-gray-dark border-secondary-darkest dark:border-gray-dark;
+  }
+
+  .weather-list li i:hover + label,
+  .weather-list li i:focus + label {
+    @apply absolute inline-block bg-secondary-darkest text-gray-lightest dark:text-gray-darkest dark:bg-primary h-100 rounded-r-md pl-xl pr-xl bg-primary p-none;
+  }
+
+  nav#main-menu {
+    @apply px-lg sm:h-100 sm:min-h-full;
+  }
+
+  #main-menu ul {
+    @apply px-none;
+  }
+
+  #main-menu ul li {
+    @apply flex flex-wrap justify-start text-center sm:m-none;
+  }
+
+  #main-menu ul p {
+    @apply flex flex-wrap justify-center text-sm text-center w-100;
+  }
+
+  #main-menu ul li svg {
+    @apply flex flex-row justify-center text-center transition-opacity duration-500 ease-in-out border-2 rounded-full cursor-pointer border-secondary w-100 bg-secondary p-xs opacity-70 hover:opacity-100;
+  }
+
+  #main-menu-icons {
+    @apply mt-lg;
+  }
+
+  #main-menu {
+    @apply relative bg-gray-dark p-sm;
+  }
+
+  #main-menu ul {
+    @aplly flex flex-wrap flex-column justify-center;
+  }
+  #main-menu li.active svg {
+    @apply bg-secondary;
+  }
+
+  nav#main-menu #main-menu-icons li {
+    @apply m-none;
+  }
+
+  .app-icons {
+    @apply max-w-full w-100;
+  }
+
+  ul#app-search-results {
+    @apply border-2 rounded-lg m-none pb-xl bg-gray-dark text-secondary dark:text-primary border-secondary-darkest dark:border-secondary;
+  }
+
+  main#main ul#app-search-results li,
+  main#main ul#app-search-results li > a {
+    @apply m-none pb-none pr-lg text-secondary dark:text-primary;
+  }
+
+  #mobile-menu {
+    @apply bg-gray-dark p-xs text-secondary dark:text-primary;
+  }
+}
 
 :root {
   --color-primary: #14b8a6;
-  --color-secundary: #6b7280;
+  --color-secundary: #009ce5;
   --color-white: #f1f1f1;
+  --color-bg-light: rgba(238, 242, 255);
+  --color-green: #22c55e;
   --color-black: #111827;
+  --color-bg-dark: #111827;
   --tw-ring-color: var(--color-primary);
+  --weather-paddig-x: 2.25rem;
+  --weather-paddig-y: 2.25rem;
+  --main-width: 500px;
+  --nav-width: 80px;
+  --main-height: 850px;
+  --weather-col-width: calc(var(--main-width) - var(--weather-paddig-x));
+  --fiveday-col: var(--weather-col-width) var(--weather-col-width)
+    var(--weather-col-width) var(--weather-col-width) var(--weather-col-width)
+    var(--weather-col-width) var(--weather-col-width) var(--weather-col-width)
+    var(--weather-col-width) var(--weather-col-width);
+  --tomorrow-col: var(--weather-col-width) var(--weather-col-width);
+  --current-col: var(--weather-col-width);
+  --weather-day-switcher-w: 55px;
 }
 
-#root {
+#__next {
+  transition-property: left width;
+  transition-duration: 0.2s;
+}
+
+#__next .main-headline,
+#root .main-headline {
+  width: calc(100% - var(--weather-paddig-x));
+}
+
+#app-weather-view .weather-main-icon {
+  margin: 0;
+  width: calc(100% - var(--weather-paddig-x));
+}
+
+#app-weather-view section {
+  margin-right: var(--weather-paddig-x);
+}
+
+#app-main-container {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: 103%;
+  width: 100%;
+  padding: 0px;
+}
+
+#app-weather-view .weather-main-icon p.temprature {
+  left: calc(50% + (110px / 2) - 7px);
+  bottom: 0px;
+  line-height: 1rem;
+}
+
+#app-weather-view .weather-main-icon i.icon-big {
+  width: 110px;
+  height: 110px;
+}
+
+#app-weather-view .weather-main-icon i.icon-big:before {
+  position: absolute;
+  left: 0;
+  top: 20px;
+  width: 100%;
+  height: 100%;
+  font-size: 3.5rem;
+}
+
+main#main #app-city-select-overlay,
+#menu-app-overlay-scroll {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 115%;
+  height: 103%;
+}
+
+.app-icons {
+  bottom: 0;
+}
+
+#app-container {
+  overflow-x: hidden;
+}
+
+#app-container > article {
+  padding: var(--weather-paddig-y) var(--weather-paddig-x);
+  height: 100%;
+}
+
+#app-view-day-selector {
+  width: var(--weather-day-switcher-w);
+}
+
+#app-view-day-selector {
+  top: 0rem;
+  left: calc(var(--main-width) - var(--weather-day-switcher-w) + 5px);
+}
+
+#menu-app-overlay {
+  left: var(--nav-width);
+  height: calc(100%);
+  top: 0;
+  overflow: hidden;
+}
+
+#app-weather-view {
   display: grid;
-  grid-template-rows: minmax(100vh, auto);
+  align-content: flex-start;
+  justify-content: center;
+  grid-auto-flow: row;
+  width: max-content;
+}
+
+#app-weather-view.five-day {
+  grid-template-columns: var(--current-col);
+}
+
+#app-weather-view.tomorrow {
+  grid-template-columns: var(--current-col);
+}
+
+#app-weather-view.current {
+  grid-template-columns: var(--current-col);
+}
+
+#app-container > article#app-weather-view {
+  padding: var(--weather-paddig-y) 0 0 var(--weather-paddig-x);
+  max-width: 100%;
+}
+
+.app-icons {
+  z-index: -1;
+}
+
+#main-menu {
+  width: var(--nav-width);
+}
+
+#__next {
+  display: grid;
   position: relative;
   overflow: hidden;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
+  grid-auto-columns: var(--nav-width) var(--main-width);
+  grid-column: 3;
+  grid-auto-flow: column;
+  grid-gap: 0;
+}
+
+a {
+  text-underline-offset: 0.3rem;
+  text-decoration: underline;
+}
+
+#main {
+  max-width: 100vw;
+  position: relative;
+}
+
+#__next #app-weather-view ul,
+#root #app-weather-view ul {
+  display: grid;
+  align-content: center;
+  grid-template-columns: 1fr minmax(auto, 1fr);
+  grid-template-rows: repeat(2, minmax(40px, auto));
+  grid-gap: 0px;
+  justify-items: center;
+  padding: 0;
+}
+
+#__next #app-weather-view li,
+#root #app-weather-view li {
+  margin: 0rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+fieldset input {
+  box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.05) inset;
+}
+
+/*NOTE HIGH RES SCREENS*/
+@media screen and (min-width: 2201px) {
+  #main,
+  #menu-app-overlay {
+    width: var(--main-width);
+  }
+
+  #main-menu,
+  #main {
+    height: var(--main-height);
+  }
+
+  #__next #mobile-menu {
+    display: none;
+  }
+}
+
+/*NOTE DESKTOP SCREENS*/
+@media screen and (max-width: 2199px) {
+  #main,
+  #menu-app-overlay {
+    width: var(--main-width);
+  }
+
+  #main-menu,
+  #main {
+    height: var(--main-height);
+  }
+
+  #__next #mobile-menu {
+    display: none;
+  }
+}
+
+/*NOTE TABLET*/
+@media screen and (max-width: 1280px) {
+}
+
+/*NOTE MOBILE*/
+@media screen and (max-width: 765px) {
+  #app-weather-view h1.main-headline,
+  #app-weather-view .app-weather-phrase-long,
+  #app-weather-view .weather-main-icon {
+    width: 100% !important;
+  }
+
+  #app-container > article {
+    margin-bottom: 60px;
+  }
+
+  @keyframes burger_top {
+    0% {
+      transform: rotateZ(0deg) translate(0px, 0px);
+    }
+    100% {
+      transform: translate(29%, -5%) rotateZ(45deg);
+    }
+  }
+
+  @keyframes burger_bottom {
+    0% {
+      transform: rotateZ(0deg) translate(0px, 0px);
+    }
+    100% {
+      transform: translate(-40%, 31%) rotateZ(-45deg);
+    }
+  }
+
+  @keyframes burger_middle {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  #app-container > article#app-weather-view.current {
+    padding: var(--weather-paddig-y) 0 0 var(--weather-paddig-x);
+    max-width: 100%;
+  }
+
+  .menu_svg__burger-menu.animate .menu_svg__burger-top path {
+    animation: burger_top 0.5s;
+    animation-delay: 0.1s;
+  }
+  .menu_svg__burger-menu.animate .menu_svg__burger-middle path {
+    animation: burger_middle 0.2s reverse;
+    animation-delay: 0.1s;
+  }
+  .menu_svg__burger-menu.animate .menu_svg__burger-bottom path {
+    animation: burger_bottom 0.5s reverse;
+    animation-delay: 0.1s;
+  }
+
+  .menu_svg__burger-menu .menu_svg__burger-top path {
+    transform: unset;
+  }
+  .menu_svg__burger-menu .menu_svg__burger-middle path {
+    opacity: unset;
+  }
+  .menu_svg__burger-menu .menu_svg__burger-bottom path {
+    transform: unset;
+  }
+
+  #__next.menu .menu_svg__burger-menu.animate .menu_svg__burger-top path {
+    animation: burger_top 0.5s;
+    animation-delay: 0.1s;
+  }
+  #__next.menu .menu_svg__burger-menu.animate .menu_svg__burger-middle path {
+    animation: burger_middle 0.2s;
+    animation-delay: 0.1s;
+  }
+  #__next.menu .menu_svg__burger-menu.animate .menu_svg__burger-bottom path {
+    animation: burger_bottom 0.5s;
+    animation-delay: 0.1s;
+  }
+
+  #__next.menu .menu_svg__burger-menu .menu_svg__burger-top path {
+    transform: translate(29%, -5%) rotateZ(45deg);
+  }
+  #__next.menu .menu_svg__burger-menu .menu_svg__burger-middle path {
+    opacity: 0;
+  }
+  #__next.menu .menu_svg__burger-menu .menu_svg__burger-bottom path {
+    transform: translate(-40%, 31%) rotateZ(-45deg);
+  }
+
+  #__next #mobile-menu {
+    display: inherit;
+  }
+
+  #__next #main-menu::before {
+    position: absolute;
+    top: 0;
+    left: var(--nav-width);
+    content: ' ';
+    display: initial;
+    transition-property: opacity background box-shadow;
+    transition-delay: 0.05s;
+    transition-duration: 0.05s;
+    background: transparent;
+    box-shadow: unset;
+    opacity: 0.5;
+    height: 100%;
+    width: 0;
+  }
+
+  #__next.menu #main-menu::before {
+    position: absolute;
+    top: 0;
+    left: var(--nav-width);
+    content: ' ';
+    display: initial;
+    opacity: 1;
+    height: 100%;
+    width: calc(100vw - 50px);
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5) inset;
+    z-index: 999;
+  }
+
+  #__next #mobile-menu {
+    position: fixed;
+    left: 0;
+    z-index: 20;
+    top: 0;
+    width: 40px;
+    border-radius: 0;
+  }
+
+  #__next.menu #mobile-menu {
+    left: 20px;
+    top: 5px;
+  }
+
+  #app-view-day-selector {
+    top: 0rem;
+    left: 0;
+  }
+
+  #app-view-day-selector.hidden {
+    display: none;
+  }
+
+  #app-weather-view {
+    position: unset;
+  }
+
+  main#main,
+  main#main #app-main-container {
+    transform: scaleX(1);
+  }
+
+  #app-view-day-selector {
+    left: 0;
+    width: calc(100vw + 5px);
+    height: 60px;
+    position: fixed;
+    bottom: 0;
+    top: unset;
+    margin-left: -5px;
+    padding: 0;
+  }
+
+  #app-view-day-selector .app-weather-dates {
+    display: flex;
+    width: 100%;
+    margin: 0px;
+    justify-content: space-around;
+  }
+
+  #app-view-day-selector .app-weather-dates > * {
+    flex: 1 1 55px !important;
+    margin: 0;
+    max-height: 45px;
+  }
+
+  #app-view-day-selector .app-weather-dates i {
+    font-size: 1.5rem !important;
+  }
+
+  #app-weather-view:not(.tomorrow) .app-view-time-selector {
+    max-width: 120px;
+  }
+
+  #app-view-day-selector .app-weather-dates > a {
+    line-height: 30px;
+    flex: 1 1 55px !important;
+    height: 45px;
+    max-width: 45px;
+    min-height: unset;
+  }
+
+  #app-view-day-selector .app-weather-dates > a svg {
+    max-height: 50px;
+  }
+
+  #app-view-day-selector #prev-day {
+    transform: rotateZ(-90deg);
+  }
+
+  #app-view-day-selector #next-day {
+    transform: rotateZ(-90deg);
+  }
+
+  #app-city-select-overlay li,
+  .select-list li,
+  #menu-app-overlay li,
+  #main-menu ul li {
+    text-align: text-left;
+    justify-content: start;
+  }
+
+  #__next {
+    left: calc(0px - var(--nav-width));
+    width: calc(100vw + var(--nav-width));
+  }
+
+  #__next.menu {
+    grid-auto-columns: var(--nav-width)
+      calc(var(--main-width) - var(--nav-width));
+  }
+
+  #__next.menu {
+    left: 0px;
+    width: 100%;
+  }
+
+  #__next.menu #mobile-menu {
+    position: absolute;
+  }
+
+  #mobile-menu svg {
+    fill: var(--color-secundary);
+  }
+
+  #__next.dark #mobile-menu svg {
+    fill: var(--color-primary);
+  }
+
+  #__next.menu #mobile-menu svg {
+    fill: var(--color-secundary);
+  }
+
+  #__next,
+  main#main {
+    max-height: unset;
+    min-height: 100%;
+  }
+
+  #main {
+    width: var(--main-width);
+  }
+  #main,
+  #menu-app-overlay {
+    width: var(--main-width);
+    min-width: var(--main-width);
+  }
+
+  #app-main-container {
+    height: unset;
+  }
+  :root {
+    --main-width: 100vw;
+    --main-height: unset;
+  }
+
+  .weather-list li i {
+    height: 30px !important;
+    width: 30px !important;
+    font-size: 0.9rem;
+    margin-right: 5px;
+  }
+
+  .weather-list li {
+    min-width: 140px;
+  }
+  .weather-list label {
+    height: 30px !important;
+    line-height: 2rem;
+    left: 20px !important;
+    font-size: 0.8rem;
+  }
+}
+
+main > div {
+  margin-top: -0.8rem;
+  margin-bottom: -0.8rem;
+}
+
+.btn-ghost:focus {
+  outline: 0;
+}
+
+body {
+  padding: 0 !important;
 }
